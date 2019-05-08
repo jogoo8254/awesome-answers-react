@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// to use css files in a create-react-app based project,
+// import the file as you would a JS file.
+// a tool called webpack will take CSS make it appear as a 
+// <style /> tag in any page where this JS is used.
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { Server } from 'net';

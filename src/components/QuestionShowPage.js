@@ -6,7 +6,7 @@ import {AnswerDetails} from "./AnswerDetails";
 // These are meant to replace various pages rendered by the routes of our rails Server.
 export function QuestionShowPage(){
     return (
-        <main>
+        <main className="Page">
             <QuestionDetails title="What's your favourite colour?"
             body="Red,, green, blue, seaform green, turquoise, etc."
             author={{full_name: "Bridge Troll"}}

@@ -7,7 +7,15 @@ export function AnswerDetails(props){
         <div>
             <p>
                 {props.answer}. <br/>
-                By {props.author && props.author.full_name} <br/>
+                {
+                    /**
+                     * using the "style" prop on a base HMTL component
+                     * will modify in the style attribute (inline styles)
+                     */
+                }
+                <small style={{
+                    color: "red"
+                }}>By {props.author && props.author.full_name}</small> <br/>
                 <small>Answered {props.created_at} days ago</small>
             </p>
         </div>
