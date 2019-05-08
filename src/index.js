@@ -10,13 +10,13 @@ import { Server } from 'net';
 // Your React component's names must be in PascalCase. Those whose names do not
 // begin with upper case letter will interpret it as plain HTML tag
 
-function AnswerDetails(){
+function AnswerDetails(props){
     return(
         <div>
             <p>
-                Red. <br/>
-                By Ulises Wisozk <br/>
-                <small>Answered 2 days ago</small>
+                {props.answer}. <br/>
+                By {props.author && props.author.full_name} <br/>
+                <small>Answered {props.created_at} days ago</small>
             </p>
         </div>
         )
@@ -52,7 +52,9 @@ function QuestionShowPage(){
             view_count = {100}
             created_at={new Date().toLocaleString()}
             />
-            <AnswerDetails/>
+            <AnswerDetails answer="Red"
+            author={{full_name: "Ulises Wisozk"}}
+            created_at={new Date().toLocaleString()}/>
         </main>
     )
 }
