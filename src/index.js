@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import { Server } from 'net';
 
 // A React component is a function that returns a React element.
 // React elements are created with the `React.createElement()` method
@@ -41,14 +42,23 @@ function QuestionDetails(){
     )
 }
 
+// To structure our app, we'll create components that simulate the pages of web application.
+// These are meant to replace various pages rendered by the routes of our rails Server.
+function QuestionShowPage(){
+    return (
+        <main>
+            <QuestionDetails/>
+            <AnswerDetails/>
+        </main>
+    )
+}
 // In React application, we create a componenet that acts as the "root" or the entry point to
 // all of our other components.
 // This is the one that should be rendered `ReactDOM.render()` 
 function App(){
     return (
         <div>
-            <QuestionDetails/>
-            <AnswerDetails/>
+            <QuestionShowPage/>
         </div>
     )
 }
