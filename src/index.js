@@ -41,8 +41,20 @@ function QuestionDetails(){
     )
 }
 
-// ReactDOM.render(<QuestionDetails />, document.getElementById('root'));
-ReactDOM.render(<AnswerDetails />,document.getElementById('root'));
+// In React application, we create a componenet that acts as the "root" or the entry point to
+// all of our other components.
+// This is the one that should be rendered `ReactDOM.render()` 
+function App(){
+    return (
+        <div>
+            <QuestionDetails/>
+            <AnswerDetails/>
+        </div>
+    )
+}
+
+
+ReactDOM.render(<App />,document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
