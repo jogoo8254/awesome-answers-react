@@ -10,7 +10,7 @@ export function QuestionIndexPage (props){
                 }}>
                 {
                     data.map(question => (
-                    <li>
+                    <li key={question.id}>
                         <a href="">{question.title}</a>
                     </li>
                     ))
