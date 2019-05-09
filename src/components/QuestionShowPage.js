@@ -8,18 +8,28 @@ import questionData from "../questionData"
 // These are meant to replace various pages rendered by the routes of our rails Server.
 
 export class QuestionShowPage extends Component {
+    constructor(props) {
+        // When using a constructor in a class-based
+        // component, you must call the `Component` class'
+        // constructor with `super` passing it the `props`.
+        super(props);
+    
+        this.state = {
+          question: questionData
+        };
+      }
     render(){
         return (
             <main className="Page">
-                <QuestionDetails
-                    title="What's your favourite colour?"
-                    body="Red,, green, blue, seaform green, turquoise, etc."
-                    author={{full_name: "Bridge Troll"}}
-                    view_count = {100}
-                    created_at={new Date().toLocaleString()}
+                <QuestionDetails {...this.state.question}
+                    // title="What's your favourite colour?"
+                    // body="Red,, green, blue, seaform green, turquoise, etc."
+                    // author={{full_name: "Bridge Troll"}}
+                    // view_count = {100}
+                    // created_at={new Date().toLocaleString()}
                 />
                 <h2>Answers</h2>
-                <AnswerList answers={questionData.answers}/>
+                <AnswerList answers={this.state.question.answers} />
             </main>
         )
     }
