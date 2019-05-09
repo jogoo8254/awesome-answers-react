@@ -23,6 +23,14 @@ export class QuestionShowPage extends Component {
               question: null
           })
       }
+      deleteAnswer(id){
+        this.setState({
+            question: {
+                ...this.state.question,
+                answers: this.state.question.answers.filter(a=> a.id !== id)
+            }
+        })
+      }
     render(){
         if(!this.state.question){
             return (
@@ -34,9 +42,12 @@ export class QuestionShowPage extends Component {
         return (
             <main className="Page">
               <QuestionDetails {...this.state.question} />
-              <button onClick={() => this.deleteQuestion()}>Delete</button>
+              <button onClick={() => this.deleteQuestion()}>Delete Question</button>
               <h2>Answers</h2>
-              <AnswerList answers={this.state.question.answers} />
+              <AnswerList
+                onAnswerDeleteClick={id => this.deleteAnswer(id)}
+                answers={this.state.question.answers}
+              />
             </main>
           );
     }

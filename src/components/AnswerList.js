@@ -21,7 +21,7 @@ export function AnswerList(props){
                 In JSX, you can use the spread operator
                 to pass properties of an object as props to the React element
               */}
-              <AnswerDetails {...answer} />
+              <AnswerDetails onDeleteClick={props.onAnswerDeleteClick} {...answer} />
             </li>
           ))}
         </ul>

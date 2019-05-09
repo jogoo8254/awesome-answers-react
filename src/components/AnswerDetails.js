@@ -23,6 +23,7 @@ export function AnswerDetails(props){
             <br />
             <small>Answered {props.created_at}</small>
           </p>
+          <button onClick={() => props.onDeleteClick(props.id)}>Delete</button>
         </div>
       );
 }
