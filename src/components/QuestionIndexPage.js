@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import data from "../questionsData"
 export class QuestionIndexPage extends Component{
-    render(props){
+    render(){
         return(
             <main className="Page">
                 <h2>Questions</h2>
