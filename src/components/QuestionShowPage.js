@@ -18,19 +18,26 @@ export class QuestionShowPage extends Component {
           question: questionData
         };
       }
+      deleteQuestion(){
+          this.setState({
+              question: null
+          })
+      }
     render(){
+        if(!this.state.question){
+            return (
+                <main className="Page">
+                    <h2>Question doesn't exist!</h2>
+                </main>
+            )
+        }
         return (
             <main className="Page">
-                <QuestionDetails {...this.state.question}
-                    // title="What's your favourite colour?"
-                    // body="Red,, green, blue, seaform green, turquoise, etc."
-                    // author={{full_name: "Bridge Troll"}}
-                    // view_count = {100}
-                    // created_at={new Date().toLocaleString()}
-                />
-                <h2>Answers</h2>
-                <AnswerList answers={this.state.question.answers} />
+              <QuestionDetails {...this.state.question} />
+              <button onClick={() => this.deleteQuestion()}>Delete</button>
+              <h2>Answers</h2>
+              <AnswerList answers={this.state.question.answers} />
             </main>
-        )
+          );
     }
 }
