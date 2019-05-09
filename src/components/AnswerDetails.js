@@ -3,21 +3,26 @@ import React from "react";
 // begin with upper case letter will interpret it as plain HTML tag
 
 export function AnswerDetails(props){
-    return(
+    return (
         <div>
-            <p>
-                {props.answer}. <br/>
-                {
-                    /**
-                     * using the "style" prop on a base HMTL component
-                     * will modify in the style attribute (inline styles)
-                     */
-                }
-                <small style={{
-                    color: "red"
-                }}>By {props.author && props.author.full_name}</small> <br/>
-                <small>Answered {props.created_at} days ago</small>
-            </p>
+          <p>
+            {props.body}
+            <br />
+            {/* 
+              Using the "style" prop on a base HTML component
+              will modify in the style attribute (inline styles.)
+            */}
+            <small
+              style={{
+                color: "red",
+                fontStyle: "italic"
+              }}
+            >
+              By {props.author.first_name}
+            </small>
+            <br />
+            <small>Answered {props.created_at}</small>
+          </p>
         </div>
-        )
+      );
 }

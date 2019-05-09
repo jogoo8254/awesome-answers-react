@@ -1,7 +1,9 @@
 import React from "react";
 import {QuestionDetails} from "./QuestionDetails";
 import {AnswerDetails} from "./AnswerDetails";
+import {AnswerList} from "./AnswerList";
 
+import questionData from "../questionData"
 // To structure our app, we'll create components that simulate the pages of web application.
 // These are meant to replace various pages rendered by the routes of our rails Server.
 export function QuestionShowPage(){
@@ -13,9 +15,8 @@ export function QuestionShowPage(){
             view_count = {100}
             created_at={new Date().toLocaleString()}
             />
-            <AnswerDetails answer="Red"
-            author={{full_name: "Ulises Wisozk"}}
-            created_at={new Date().toLocaleString()}/>
+            <h2>Answers</h2>
+            <AnswerList answers={questionData.answers}/>
         </main>
     )
 }
