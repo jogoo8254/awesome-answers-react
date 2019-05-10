@@ -1,15 +1,17 @@
 import React, {Component} from "react"
-import data from "../questionsData"
+import { Question } from "../api/question";
 export class QuestionIndexPage extends Component {
-    constructor(props){
-        super(props)
-        this.state={
-            questions: data
-        }
+    state={
+            questions: []
+    };
 
-        window.questions = data;
+    componentDidMount(){
+      Question
+      .all()
+      .then(questions=>{
+        this.setState({ questions })
+      })
     }
-
     deleteQuestion(id){
         console.log(id)
         // to change state in a React component, you must use the `setstate()` method on `this`.

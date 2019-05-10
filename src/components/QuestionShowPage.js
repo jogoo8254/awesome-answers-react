@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import {QuestionDetails} from "./QuestionDetails";
 import {AnswerDetails} from "./AnswerDetails";
 import {AnswerList} from "./AnswerList";
+import { Question } from "../api/question";
 
-import questionData from "../questionData"
 // To structure our app, we'll create components that simulate the pages of web application.
 // These are meant to replace various pages rendered by the routes of our rails Server.
 
@@ -15,8 +15,18 @@ export class QuestionShowPage extends Component {
         super(props);
     
         this.state = {
-          question: questionData
+          question: []
         };
+      }
+
+      componentDidMount(){
+        Question
+        .one(199)
+        .then(question => {
+          this.setState({
+            question // same thing as question: question (syntax sugar)
+          })
+        })
       }
       deleteQuestion(){
           this.setState({
