@@ -24,6 +24,7 @@ export class QuestionShowPage extends Component {
         // history, location and match.
         // `match` holds a property that contains a URL's params.
         const id = this.props.match.params.id;
+        console.log(this.props)
         Question
         .one(id)
         .then(question => {

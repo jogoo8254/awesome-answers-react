@@ -12,6 +12,9 @@ export function NavBar (props){
             <NavLink exact to="/">
                 Welcome
             </NavLink>
+            <NavLink exact to="/questions/new">
+                Ask
+            </NavLink>
             <NavLink exact to="/questions">
                 Questions
             </NavLink>
