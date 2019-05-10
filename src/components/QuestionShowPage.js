@@ -20,8 +20,12 @@ export class QuestionShowPage extends Component {
       }
 
       componentDidMount(){
+        // Componenets rendered by the <Route> component are passed three props:
+        // history, location and match.
+        // `match` holds a property that contains a URL's params.
+        const id = this.props.match.params.id;
         Question
-        .one(199)
+        .one(id)
         .then(question => {
           this.setState({
             question // same thing as question: question (syntax sugar)
