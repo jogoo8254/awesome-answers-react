@@ -1,8 +1,11 @@
 import React, {Component} from "react";
 import { Question } from "../api/question";
 import { Session } from "../api/session";
-
+import {FormErrors} from "./FormErrors";
 export class QuestionNewPage extends Component {
+    state={
+        errors: []
+    }
     createQuestion(event){
         event.preventDefault();
         const { currentTarget } = event
@@ -13,12 +16,18 @@ export class QuestionNewPage extends Component {
                 body: formData.get("body")
               })
             .then(data => {
+                console.log(data)
               if (!data.errors) {
                 // The `history` prop is provide by the <Route>
                 // component. It has a bunch of methods to manipulate
                 // browser. You can use `push` to direct a user to any
                 // page in our app.
                 this.props.history.push(`/questions/${data.id}`);
+              }else{
+                  console.log(data.errors)
+                  this.setState({
+                      errors: data.errors
+                  })
               }
             });
     }
@@ -26,6 +35,7 @@ export class QuestionNewPage extends Component {
         return(
             <main className="Page">
             <h1>Ask a Question</h1>
+            <FormErrors errors={this.state.errors}/>
             <form onSubmit={event => this.createQuestion(event)}>
                 <div>
                     <label htmlFor="title">Title</label> <br />

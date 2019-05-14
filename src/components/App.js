@@ -39,7 +39,7 @@ class App extends Component{
   getCurrentUser= () =>{
         return User.current().then((user)=>{
             if(user.id){
-                this.setState({currentUser: user});
+                this.setState({currentUser: user, loading: false});
             }
         })
     }
@@ -51,6 +51,9 @@ class App extends Component{
         })
     }
     render(){
+        if(this.state.loading){
+            return <div />;
+        }
         return (
             <BrowserRouter>
             <div>
