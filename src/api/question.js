@@ -1,4 +1,5 @@
 import { BASE_URL } from "../config";
+import { updateExpression } from "@babel/types";
 
 // Requests
 export const Question = {
@@ -26,5 +27,15 @@ export const Question = {
       },
       body: JSON.stringify(params)
     }).then(res => res.json());
+  },
+  update(id, params){
+    return fetch(`${BASE_URL}/questions/${id}`,{
+      method: "PATCH",
+      credentials: "include",
+      headers: {
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify(params)
+    }).then(res=> res.json())
   }
 };

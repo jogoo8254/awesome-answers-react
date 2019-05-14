@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import {QuestionShowPage} from "./QuestionShowPage";
 import {QuestionIndexPage} from "./QuestionIndexPage";
+import { QuestionEditPage } from "./QuestionEditPage";
 import { NavBar } from "./NavBar";
 import { WelcomePage } from "./Welcome";
 import { QuestionNewPage } from "./QuestionNewPage";
@@ -86,9 +87,10 @@ class App extends Component{
                     />
                     <AuthRoute
                         isAuthenticated={!!this.state.currentUser}
-                        path="/questions/:id"
-                        component={QuestionShowPage}
+                        path="/questions/:id/edit"
+                        component={QuestionEditPage}
                     />
+                    <Route exact path="/questions/:id" component={QuestionShowPage} />
                 </Switch>
             </div>
             </BrowserRouter>
