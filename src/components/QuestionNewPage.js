@@ -8,16 +8,10 @@ export class QuestionNewPage extends Component {
         const { currentTarget } = event
         const formData = new FormData(currentTarget)
         
-        Session.create({
-            email: "js@winterfell.gov",
-            password: "supersecret"
-          })
-            .then(() =>
-              Question.create({
+        Question.create({
                 title: formData.get("title"),
                 body: formData.get("body")
               })
-            )
             .then(data => {
               if (!data.errors) {
                 // The `history` prop is provide by the <Route>

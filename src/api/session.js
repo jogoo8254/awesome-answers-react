@@ -1,4 +1,5 @@
 import { BASE_URL } from "../config";
+import { resolveSoa } from "dns";
 export const Session = {
     create(params) {
       return fetch(`${BASE_URL}/session`, {
@@ -9,5 +10,11 @@ export const Session = {
         },
         body: JSON.stringify(params)
       }).then(res => res.json());
+    },
+    destroy(){
+      return fetch(`${BASE_URL}/session`,{
+        method: 'DELETE',
+        credentials: 'include'
+      }).then((res)=>res.json())
     }
   };
