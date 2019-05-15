@@ -38,10 +38,13 @@ class App extends Component{
   // To do that we can either bind it in the constructor using the `.bind` method
   // Or defined our method like we did below using an arrow function
   getCurrentUser= () =>{
-        return User.current().then((user)=>{
+        return User.current()
+        .then((user)=>{
             if(user.id){
-                this.setState({currentUser: user, loading: false});
+                this.setState({currentUser: user});
             }
+            this.setState({loading: false})
+            
         })
     }
     signOut = ()=>{

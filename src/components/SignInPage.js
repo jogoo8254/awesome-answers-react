@@ -1,4 +1,6 @@
 import React from 'react';
+import { TextField } from "office-ui-fabric-react/lib/TextField"
+import { PrimaryButton } from "office-ui-fabric-react/lib/Button";
 import {Session} from '../api/session'
 export function SignInPage(props){
     const {onSignIn} = props;
@@ -20,18 +22,19 @@ export function SignInPage(props){
         })
     }
     return(
-        <main>
+        <main className="Page">
             <h1>Sign In</h1>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email"/>
+                    <TextField label = "Email" type="email" name="email"/>
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" id="password"/>
+                    <TextField label="Password" type="password" name="password"/>
                 </div>
-                <input type="submit" value="Sign In" />
+                <PrimaryButton
+                iconProps={{iconName: "Cloud" }}
+                text="Sign In"
+                type="submit" />
             </form>
         </main>
     )
